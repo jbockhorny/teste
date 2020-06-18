@@ -1,0 +1,14 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "bootstrap";  
+
+*{
+    padding: 0;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+.img-logo{
+    width: 82px;
+    height: 30px;
+    display: block;
+}
