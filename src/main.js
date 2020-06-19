@@ -47,9 +47,10 @@ function templateCarousel(item) {
 
 function getCategories(objCategories) {
   let categories = new Map();
+  console.log(categories)
   for (let i = 0; i < objCategories.length; i++) {
     let splits = objCategories[i].categories.split(', ');
-    console.log(splits)
+    // console.log(splits)
     splits.forEach(element => {
       let cardsCategories = categories.get(element);
       if (cardsCategories === undefined) {

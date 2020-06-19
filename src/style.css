@@ -12,9 +12,9 @@
     scroll-behavior: smooth;
 }
 
-.img-logo{
-    width: 82px;
-    height: 30px;
+.logo-sky{
+    width: 5vw;
+    height: auto;
     display: block;
 }
 
@@ -33,3 +33,29 @@
 .menuCard{
     margin: 0.2%;
 }
+
+.icon-contrast{
+    width: 2.5vw;
+}
+
+.icon-size{
+    width: 2vw;
+}
+
+.icons-nav{
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.nav-menu{
+   color:  rgba(0, 0, 0, 0.6);
+}
+
+.nav-item:hover{
+    background-color: rgba(0, 0, 0, 0);
+    color: #f35c58;
+ }
+
+
+
