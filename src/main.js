@@ -47,10 +47,8 @@ function templateCarousel(item) {
 
 function getCategories(objCategories) {
   let categories = new Map();
-  console.log(categories)
   for (let i = 0; i < objCategories.length; i++) {
     let splits = objCategories[i].categories.split(', ');
-    // console.log(splits)
     splits.forEach(element => {
       let cardsCategories = categories.get(element);
       if (cardsCategories === undefined) {
@@ -63,15 +61,15 @@ function getCategories(objCategories) {
   }
 
   categories.forEach(function (objCategories, categoria) {
-    let titleCategoria = document.createElement('h5')
-    sectionCard.appendChild(titleCategoria)
-    let divCategoria = document.createElement('div')
-    sectionCard.appendChild(divCategoria);
-    divCategoria.classList.add('div-categoria')
-    titleCategoria.innerHTML += categoria
+    let titleSection = document.createElement('h5')
+    sectionCard.appendChild(titleSection)
+    let divSection = document.createElement('div')
+    sectionCard.appendChild(divSection);
+    divSection.classList.add('div-section')
+    titleSection.innerHTML += categoria
     for (let i = 0; i < objCategories.length; i++) {
       let menuCard = document.createElement('div');
-      divCategoria.appendChild(menuCard);
+      divSection.appendChild(menuCard);
       menuCard.classList.add('menuCard')
       menuCard.innerHTML += `<img class="cardCategories" src="${objCategories[i].images[0].url}" alt="Card do filme">`
     }
