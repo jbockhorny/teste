@@ -1,5 +1,6 @@
 const carousel = document.getElementById('carousel')
 const sectionCard = document.getElementById('card')
+// const divSwiper = document.getElementById('swiper')
 
 const url = 'https://sky-frontend.herokuapp.com/movies';
 
@@ -18,7 +19,6 @@ function getApi() {
       getCategories(data[2].movies)
     })
 }
-
 
 function templateCarousel(item) {
   carousel.innerHTML =
@@ -75,4 +75,60 @@ function getCategories(objCategories) {
     }
   }, categories)
 }
+
+// channels.map((channel) => {
+//   wrapper.innerHTML = `
+//   ${wrapper.innerHTML} 
+//   <div class="swiper-slide">
+//   <h3>${channel.name}</h3>
+//     <picture><img src="${channel.url}"></img></picture>     
+//     <p>ao vivo</p> 
+//   </div>`;
+// });
+
 getApi()
+
+// var swiper = new Swiper('.swiper-container', {
+//   slidesPerView: 3,
+//   spaceBetween: 30,
+//   slidesPerGroup: 3,
+//   loop: true,
+//   loopFillGroupWithBlank: true,
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//   },
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+// });
+
+// import Swiper from "https://unpkg.com/swiper/js/swiper.esm.browser.bundle.min.js";
+
+// const swiper = new Swiper(".swiper-container", {
+//   // Optional parameters
+//   direction: "horizontal",
+//   loop: false,
+//   spaceBetween: 10,
+//   slidesPerView: 6,
+//   slidesPerGroup: 6,
+//   height: 200,
+//   slidesOffsetBefore: 0,
+
+//   // If we need pagination
+//   pagination: {
+//     el: ".swiper-pagination",
+//   },
+
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev",
+//   },
+
+//   // And if we need scrollbar
+//   scrollbar: {
+//     el: ".swiper-scrollbar",
+//   },
+// });
