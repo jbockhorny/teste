@@ -70,6 +70,10 @@ align-items: center;
     width: 5%;
     height: 5%;
 }
+.swiper-container {
+    width: 600px;
+    height: 300px;
+}
 
  /* .nav-css{
      background-color: transparent;
@@ -78,5 +82,34 @@ align-items: center;
  .nav-css:hover{
     background-color:rgba(0, 0, 0, 0.6);
 } */
+.swiper-button-prev:after{
+    content:"❮";
+    font-size:30px;
+    color:#f35c58;
+    margin-right:15px
+}
 
+.swiper-button-next{
+    right:-32px;
+    justify-content:flex-start
+}
+
+.swiper-button-next:after{
+    content:"❯";
+    font-size:30px;
+    color:#f35c58;
+    margin-left:10px}
+
+.swiper-button-next,.swiper-button-prev{
+    width:64px;
+    height:64px;
+    top:58%;     
+    z-index:20;
+    transition:all 0.5s ease-in-out;
+    list-style:none;outline:0 none;
+    opacity:0.2}
+    
+    .swiper-container:hover .swiper-button-next,.swiper-container:hover .swiper-button-prev
+    {opacity:1
+    }
 

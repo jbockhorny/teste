@@ -1,3 +1,4 @@
+
 const carousel = document.getElementById('carousel')
 const sectionCard = document.getElementById('card')
 
@@ -65,75 +66,74 @@ function getCategories(objCategories) {
     });
   }
 
-  categories.forEach(function (objCategories, categoria) {
+  categories.forEach((objCategories, categoria) => {
+
+    let divCarousel = document.createElement('div')
+    sectionCard.appendChild(divCarousel)
+    divCarousel.classList.add('swiper-container', 'divCarousel')
+    
     let titleSection = document.createElement('h5')
-    sectionCard.appendChild(titleSection)
-    let divSection = document.createElement('div')
-    sectionCard.appendChild(divSection);
-    divSection.classList.add('div-section')
     titleSection.innerHTML += categoria
+    divCarousel.classList.add('titleSection')
+    
+    let divSection = document.createElement('div')
+    divCarousel.appendChild(divSection);
+    divSection.classList.add('swiper-wraper')
+    
     for(let cat in objCategories){
-      let menuCard = document.createElement('div');
-      divSection.appendChild(menuCard);
-      menuCard.classList.add('menuCard')
-      menuCard.innerHTML += `<img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme">`
+      divSection.innerHTML += `
+      <div class="swiper-slide>
+      <img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme">
+      </div>`
     }
+    divCarousel.innerHTML += `
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    `
   }, categories)
 }
 
-// channels.map((channel) => {
-//   wrapper.innerHTML = `
-//   ${wrapper.innerHTML} 
-//   <div class="swiper-slide">
-//   <h3>${channel.name}</h3>
-//     <picture><img src="${channel.url}"></img></picture>     
-//     <p>ao vivo</p> 
-//   </div>`;
-// });
-
 getApi()
 
-// var swiper = new Swiper('.swiper-container', {
-//   slidesPerView: 3,
-//   spaceBetween: 30,
-//   slidesPerGroup: 3,
-//   loop: true,
-//   loopFillGroupWithBlank: true,
-//   pagination: {
-//     el: '.swiper-pagination',
-//     clickable: true,
-//   },
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-// });
+var swiper = new Swiper ('.div-carousel', {
 
-// import Swiper from "https://unpkg.com/swiper/js/swiper.esm.browser.bundle.min.js";
+direction: "horizontal",
+loop: true,
+spaceBetween: 10,
+slidesPerView: 6,
+slidesPerGroup: 6,
+height: 200,
+slidesOffsetBefore: 0,
 
-// const swiper = new Swiper(".swiper-container", {
-//   // Optional parameters
-//   direction: "horizontal",
-//   loop: false,
-//   spaceBetween: 10,
-//   slidesPerView: 6,
-//   slidesPerGroup: 6,
-//   height: 200,
-//   slidesOffsetBefore: 0,
+breakpoints: {
+  1024: {
+    slidesPerView: 5,
+  },
 
-//   // If we need pagination
-//   pagination: {
-//     el: ".swiper-pagination",
-//   },
+  820:{
+    slidesPerView: 4,
+  },
 
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: ".swiper-button-next",
-//     prevEl: ".swiper-button-prev",
-//   },
+  640:{
+    slidesPerView: 3,
+  },
 
-//   // And if we need scrollbar
-//   scrollbar: {
-//     el: ".swiper-scrollbar",
-//   },
-// });
+  340:{
+    slidesPerView: 1,
+  }
+},
+
+pagination: {
+  el: ".swiper-pagination",
+},
+
+navigation: {
+  nextEl: ".swiper-button-next",
+  prevEl: ".swiper-button-prev",
+},
+
+scrollbar: {
+  el: ".swiper-scrollbar",
+},
+})
+
