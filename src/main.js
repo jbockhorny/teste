@@ -1,5 +1,10 @@
 const carousel = document.getElementById('carousel')
 const sectionCard = document.getElementById('card')
+
+// const titleSection = document.querySelector('.title-card')
+// const divSection = document.querySelector('.div-section')
+// const menuCard = document.querySelector('.card-section')
+
 // const divSwiper = document.getElementById('swiper')
 
 const url = 'https://sky-frontend.herokuapp.com/movies';
@@ -47,15 +52,15 @@ function templateCarousel(item) {
 
 function getCategories(objCategories) {
   let categories = new Map();
-  for (let i = 0; i < objCategories.length; i++) {
-    let splits = objCategories[i].categories.split(', ');
+  for(let cat in objCategories){
+    let splits = objCategories[cat].categories.split(', ');
     splits.forEach(element => {
       let cardsCategories = categories.get(element);
       if (cardsCategories === undefined) {
-        cardsCategories = [objCategories[i]];
+        cardsCategories = [objCategories[cat]];
         categories.set(element, cardsCategories);
       } else {
-        cardsCategories.push(objCategories[i])
+        cardsCategories.push(objCategories[cat])
       }
     });
   }
@@ -67,11 +72,11 @@ function getCategories(objCategories) {
     sectionCard.appendChild(divSection);
     divSection.classList.add('div-section')
     titleSection.innerHTML += categoria
-    for (let i = 0; i < objCategories.length; i++) {
+    for(let cat in objCategories){
       let menuCard = document.createElement('div');
       divSection.appendChild(menuCard);
       menuCard.classList.add('menuCard')
-      menuCard.innerHTML += `<img class="cardCategories" src="${objCategories[i].images[0].url}" alt="Card do filme">`
+      menuCard.innerHTML += `<img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme">`
     }
   }, categories)
 }
