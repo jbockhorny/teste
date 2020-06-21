@@ -47,9 +47,7 @@ function getCategories(objCategories) {
   let categories = new Map();
   for (let cat = 0; cat < objCategories.length; cat++) {
     let splits = objCategories[cat].categories.split(', ');
-    console.log(splits)
     splits.forEach(element => {
-      console.log(element)
       let cardsCategories = categories.get(element);
       if (cardsCategories === undefined) {
         cardsCategories = [objCategories[cat]];
@@ -59,75 +57,101 @@ function getCategories(objCategories) {
       }
     });
   }
-
-  categories.forEach((objCategories, categoria) => {
-    sectionCard.innerHTML += `
-    <div class="div-carousel swiper-container">
-    <h4>${categoria}</h4>
-    <div class="swiper-wraper">
-    ${banana()}
-    </div>
-    </div>`
-
-    function banana() {
-      for (let cat in objCategories) {
-        sectionCard.innerHTML += `
-     <div class="swiper-slide">
-      <img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme ${objCategories[cat].title}"></img>
-  </div>`
-      }
-    }
-
-    // ('.div-carousel').innerHTML += `
-    // <div class="div-carousel swiper-container">
-    // <div class="swiper-button-prev"></div>
-    // <div class="swiper-button-next"></div>
-    // </div>
-    // `
-  }, categories)
-
-  var mySwiper = new Swiper('.swiper-container', {
-    direction: "horizontal",
-    loop: true,
-    spaceBetween: 10,
-    slidesPerView: 6,
-    slidesPerGroup: 6,
-    height: 200,
-    slidesOffsetBefore: 0,
-
-    breakpoints: {
-      1024: {
-        slidesPerView: 5,
-      },
-
-      820: {
-        slidesPerView: 4,
-      },
-
-      640: {
-        slidesPerView: 3,
-      },
-
-      340: {
-        slidesPerView: 1,
-      }
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-
-
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-      el: ".swiper-scrollbar",
-    },
-  })
+  templateCategories(categories)
 }
 
+  function templateCategories(categories){
+
+    for (let [categoria, objCategories] of categories) {
+
+      sectionCard.innerHTML += `
+      <div class="swiper-container">
+      <h4>${categoria}</h4>
+      <div class="swiper-wrapper">
+      </div>
+      </div>`
+  
+      for (let cat = 0; cat < objCategories.length; cat++) {
+          document.querySelector('.swiper-wrapper').innerHTML += `
+        <div class="swiper-slide">
+        <img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme"></img>
+        </div>`
+      }
+  
+      //   document.querySelector('.swiper-wrapper').innerHTML += `
+      // <div class="swiper-slide">
+      // <img class="cardCategories" src="${categoria[cat].images[0].url}" alt="Card do filme ${categoria[cat].title}"></img>
+      // </div>`
+    }
+  
+  
+    // categories.forEach((objCategories, categoria) => {
+    //   sectionCard.innerHTML += `
+    //   <div class="div-carousel swiper-container">
+    //   <h4>${categoria}</h4>
+    //   <div class="swiper-wrapper">
+  
+    //   </div>
+    //   </div>`
+    // ${banana()}
+  
+    //     function banana(){
+    //     for (let cat = 0; cat < objCategories.length; cat++) {
+    //       console.log(objCategories[cat])
+    //       document.querySelector('.swiper-wrapper').innerHTML += `
+    // <div class="swiper-slide">
+    // <img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme ${objCategories[cat].title}"></img>
+    // </div>`
+    //     }
+  
+  
+      document.querySelector('.swiper-container').innerHTML += `
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      `
+    // }, categories)
+  
+    var mySwiper = new Swiper('.swiper-container', {
+      direction: "horizontal",
+      loop: true,
+      spaceBetween: 10,
+      slidesPerView: 6,
+      slidesPerGroup: 6,
+      height: 200,
+      slidesOffsetBefore: 0,
+  
+      breakpoints: {
+        1024: {
+          slidesPerView: 6,
+        },
+  
+        820: {
+          slidesPerView: 4,
+        },
+  
+        640: {
+          slidesPerView: 3,
+        },
+  
+        340: {
+          slidesPerView: 1,
+        }
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+  
+  
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+  
+      // And if we need scrollbar
+      scrollbar: {
+        el: ".swiper-scrollbar",
+      },
+    })
+  }
 getApi()
 
