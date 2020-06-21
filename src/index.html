@@ -4,10 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="shortcut icon" href="./assets/image/favicon_sky.ico" />
-  <link rel="stylesheet" href="./style.css">
+  <meta property="og:image" content="https://www.sky.com.br/o/sky-pre-theme/images/sky_icon.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
   <title>Assista filmes na SKY PLAY | SKY PLAY</title>
 </head>
 
@@ -15,7 +20,7 @@
 
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#"><img class="logo-sky" src="./assets/image/logo_sky.png" alt="Logo da Sky"></a>
+      <a class="navbar-brand" href="#"><img class="logo-sky" src="./assets/logo_sky.png" alt="Logo da Sky"></a>
       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span> -->
@@ -23,18 +28,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href=""><img src="./assets/image/contrast.png" alt="Alterar o contraste"> <span
+            <a class="nav-link" href=""><img src="./assets/contrast.png" alt="Alterar o contraste"> <span
                 class="sr-only"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=""><img class="icons" src="./assets/image/decrease.png" alt="Diminuir a letra"></a>
+            <a class="nav-link" href=""><img class="icons" src="./assets/decrease.png" alt="Diminuir a letra"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href=""><img class="icons" src="./assets/image/increase.png" alt="Aumentar a letra"></a>
+            <a class="nav-link" href=""><img class="icons" src="./assets/increase.png" alt="Aumentar a letra"></a>
           </li>
         </ul>
         <a class="nav-link text-muted" href="">
-          <img class="icons" src="./assets/image/person.png" alt="Icone da pessoa"> Entrar
+          <img class="icons" src="./assets/person.png" alt="Icone da pessoa"> Entrar
         </a>
       </div>
       </div>
@@ -76,7 +81,7 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
           </ol>
-          <div id="carousel" class="carousel-inner">
+          <div class="carousel-first carousel-inner">
           </div>
           <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -89,7 +94,7 @@
         </div>
       </div>
     </div>
-    <div id="card" class="card-deck" style="display: flex; flex-direction: column; margin: 5%;">
+    <div class="carousel-second m-5 flex-direction-column">
 
   </main>
 
@@ -104,7 +109,7 @@
 
 
           <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-            <img src="./assets/image/logo_footer_sky.png" width="82px" height="30px" class="d-inline-block align-top"
+            <img src="./assets/logo_footer_sky.png" width="82px" height="30px" class="d-inline-block align-top"
               alt="logo footer">
           </div>
 
@@ -112,21 +117,21 @@
 
 
             <a class="fb-ic">
-              <img class="img-ic m-2" src="./assets/image/facebook.png">
+              <img class="img-ic m-2" src="./assets/facebook.png">
             </a>
 
             <a class="tw-ic">
-              <img class="img-ic m-2" src="./assets/image/twitter.png">
+              <img class="img-ic m-2" src="./assets/twitter.png">
 
             </a>
 
             <a class="youtube-ic">
-              <img class="img-ic m-2" src="./assets/image/youtube.png">
+              <img class="img-ic m-2" src="./assets/youtube.png">
 
             </a>
 
             <a class="ins-ic">
-              <img class="img-ic m-2" src="./assets/image/instagram.png">
+              <img class="img-ic m-2" src="./assets/instagram.png">
 
             </a>
 
@@ -145,7 +150,7 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
           <div class="container">
-            <img class="appImg" src="./assets/image/minha_sky.png">
+            <img class="appImg" src="./assets/minha_sky.png">
             <div class="font">
               <h6>Baixe no seu celular o app Minha SKY e divirta-se.</h6>
             </div>
@@ -222,7 +227,7 @@
 
   </footer>
 
-  <script src="./main.js"></script>
+  <script src="./index.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -232,6 +237,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+  <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
 </body>
 
