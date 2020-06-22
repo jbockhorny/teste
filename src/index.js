@@ -130,15 +130,15 @@ function templateCategories(cat) {
     var swiper = new Swiper('.swiper-container', {
       direction: "horizontal",
       loop: true,
-      spaceBetween: 6,
-      slidesPerView: 6,
-      slidesPerGroup: 6,
+      spaceBetween: 7,
+      slidesPerView: 7,
+      slidesPerGroup: 7,
       height: 200,
       slidesOffsetBefore: 0,
 
       breakpoints: {
         1024: {
-          slidesPerView: 6,
+          slidesPerView: 7,
         },
 
         820: {
