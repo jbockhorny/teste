@@ -42,25 +42,39 @@ function templateCarousel(item) {
 		direction: "horizontal",
 		loop: true,
 		spaceBetween: 10,
-		slidesPerView: 1,
 		slidesPerGroup: 1,
 		height: 200,
-    slidesOffsetBefore: 0,
-    
-    autoplay: {
-			delay: 2500,
+		slidesOffsetBefore: 0,
+		centeredSlides: true,
+		lazy: true,
+		autoplay: {
+			delay: 3500,
 			disableOnInteraction: false,
-		  },
+		},
+		effect: "coverflow",
+		coverflowEffect: {
+			rotate: 25,
+			stretch: 10,
+			depth: 300,
+			modifier: 1,
+			slideShadows: true,
+		},
 
 		breakpoints: {
-      820: {
-				slidesPerView: 3,
-				slidesPerGroup: 3,
-      },
-      
 			1024: {
+				slidesPerView: 2,
+			},
+
+			820: {
 				slidesPerView: 3,
-				slidesPerGroup: 3,
+			},
+
+			640: {
+				slidesPerView: 2,
+			},
+
+			340: {
+				slidesPerView: 1,
 			},
 		},
 		pagination: {
