@@ -7,7 +7,6 @@ function getApi() {
 	fetch(url)
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data);
 			templateCarousel(data[0].items);
 			getCategories(data[2].movies);
 		});
@@ -17,26 +16,18 @@ function templateCarousel(item) {
 	carouselFirst.innerHTML = `
 	<div class="carousel-Launch swiper-container">
 	<div class="swiper-wrapper">
-		<div class="swiper-slide">
-			<img class="d-block w-100" src="${item[0].images[0].url}"  alt="Poster do Filme ${item[0].title}">
-		</div>
-		<div class="swiper-slide">
-			<img class="d-block w-100" src="${item[1].images[0].url}"  alt="Poster do Filme ${item[1].title}">
-		</div>
-		<div class="swiper-slide">
-			<img class="d-block w-100" src="${item[2].images[0].url}"  alt="Poster do Filme ${item[2].title}">
-		</div>
-		<div class="swiper-slide">
-			<img class="d-block w-100" src="${item[3].images[0].url}"  alt="Poster do Filme ${item[3].title}">
-		</div>
-		<div class="swiper-slide">
-			<img class="d-block w-100" src="${item[4].images[0].url}"  alt="Poster do Filme ${item[4].title}">
-		</div>
-		</div>
-		<div class="swiper-pagination"></div>
-		<div class="swiper-button-prev"></div>
-		<div class="swiper-button-next"></div>
-	</div>`;
+	<div class="swiper-pagination"></div>
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+</div>`
+
+	for (let it in item) {
+		document.querySelector('.swiper-wrapper').innerHTML += `
+	<div class="swiper-slide">
+		<img class="d-block w-100" src="${item[it].images[0].url}"  alt="Poster do Filme ${item[0].title}">
+	</div>`
+
+	}
 
 	var swiperFirst = new Swiper(".swiper-container", {
 		direction: "horizontal",
@@ -112,7 +103,7 @@ function templateCategories(cat) {
 				</div>`;
 		}
 
-		setTimeout(function() {
+		setTimeout(function () {
 			createSwipe(".swiper-container." + name);
 		}, 500);
 	}
@@ -128,17 +119,17 @@ function createSwipe(ref) {
 		height: 200,
 		slidesOffsetBefore: 0,
 
-		breakpoints: { 
-      640: {
+		breakpoints: {
+			640: {
 				slidesPerView: 5,
 				slidesPerGroup: 5,
-      },
+			},
 
-      820: {
+			820: {
 				slidesPerView: 6,
 				slidesPerGroup: 6,
 			},
-      
+
 			1024: {
 				slidesPerView: 7,
 				slidesPerGroup: 7,
@@ -160,11 +151,10 @@ function createSwipe(ref) {
 }
 
 function getCategories(objCategories) {
-	console.log(objCategories);
 
 	let categories = new Map();
 
-	for (let cat = 0; cat < objCategories.length; cat++) {
+	for (let cat in objCategories) {
 		let splits = objCategories[cat].categories.split(", ");
 
 		let card = objCategories[cat];
@@ -179,8 +169,28 @@ function getCategories(objCategories) {
 			}
 		});
 	}
-
 	templateCategories(categories);
 }
+
+// function get(objCategories) {
+// 	let categories = [];
+
+// 	for (let cat in objCategories) {
+// 		let splits = objCategories[cat].categories.split(", ");
+// 		let card = objCategories[cat];
+
+// 		splits.forEach((element) => {
+// 			if (categories[element] === undefined) {
+// 				categories[element] = [];
+// 			}
+
+// 			categories[element].push(card);
+// 		});
+// 	}
+
+// 	console.log(categories);
+
+//  templateCategories(categories);
+// }
 
 getApi();
