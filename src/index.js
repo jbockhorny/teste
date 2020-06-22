@@ -16,11 +16,8 @@ function templateCarousel(item) {
 	carouselFirst.innerHTML = `
 	<div class="carousel-Launch swiper-container">
 	<div class="swiper-wrapper">
-	<div class="swiper-pagination"></div>
-	<div class="swiper-button-prev"></div>
-	<div class="swiper-button-next"></div>
-</div>`
-
+	</div>
+    </div>`
 	for (let it in item) {
 		document.querySelector('.swiper-wrapper').innerHTML += `
 	<div class="swiper-slide">
@@ -52,20 +49,14 @@ function templateCarousel(item) {
 		},
 
 		breakpoints: {
-			1024: {
-				slidesPerView: 2,
-			},
-
-			820: {
-				slidesPerView: 3,
-			},
-
 			640: {
 				slidesPerView: 2,
 			},
-
-			340: {
-				slidesPerView: 1,
+			820: {
+				slidesPerView: 3,
+			},
+			1024: {
+				slidesPerView: 2,
 			},
 		},
 		pagination: {
