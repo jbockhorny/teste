@@ -44,13 +44,14 @@ function templateCarousel(item) {
     <div class="swiper-button-next"></div>
   </div>`
 
-  var swiperFirst = new Swiper('.carousel-Launch', {
+  var swiperFirst = new Swiper('.swiper-container', {
 
+    direction: "horizontal",
     loop: true,
-    spaceBetween: 20,
+    spaceBetween: 10,
     slidesPerView: 3,
-    slidesPerGroup: 6,
-    centeredSlides: true,
+    slidesPerGroup: 3,
+    height: 200,
     slidesOffsetBefore: 0,
 
     breakpoints: {
@@ -59,11 +60,11 @@ function templateCarousel(item) {
       },
 
       820: {
-        slidesPerView: 2,
+        slidesPerView: 3,
       },
 
       640: {
-        slidesPerView: 1,
+        slidesPerView: 2
       },
 
       340: {
@@ -73,12 +74,16 @@ function templateCarousel(item) {
     pagination: {
       el: ".swiper-pagination",
     },
-    
+
+
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
 
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
   })
 }
 
@@ -103,15 +108,17 @@ function getCategories(objCategories) {
 
 function templateCategories(cat) {
 
-  for (let [categoria, objCategories] of cat.entries()) {
+  for (let [categoria, objCategories] of cat) {
+    console.log(objCategories)
 
     CarouselSecond.innerHTML += `
       <div class="carousel-catalog swiper-container">
       <h4>${categoria}</h4>
       <div class="swiper-wrapper">
       </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
       </div>`
-
     for (let cat = 0; cat < objCategories.length; cat++) {
       document.querySelector('.swiper-wrapper').innerHTML += `
         <div class="swiper-slide">
@@ -119,15 +126,11 @@ function templateCategories(cat) {
         </div>`
     }
 
-    document.querySelector('.carousel-catalog').innerHTML += `
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      `
 
-    var swiper = new Swiper('.carousel-catalog', {
+    var swiper = new Swiper('.swiper-container', {
       direction: "horizontal",
       loop: true,
-      spaceBetween: 10,
+      spaceBetween: 6,
       slidesPerView: 6,
       slidesPerGroup: 6,
       height: 200,
