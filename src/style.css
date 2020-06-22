@@ -13,6 +13,13 @@
     display: block;
 }
 
+@media only screen and (max-width: 640px) {
+    .logo-sky {
+        width: 30vw;
+        height: auto;
+    }
+  }
+
 .cardCategories{
     width: 12vw;
     height: auto;
@@ -22,9 +29,14 @@
 
 @media only screen and (max-width: 500px) {
     .cardCategories {
-        width: 50vw;
+        width: 24vw;
         height: auto;
     }
+  }
+
+  .carousel-second{
+      margin-left: 4vw;
+      margin-right: 4vw;
   }
 
 .icons-nav{

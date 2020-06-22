@@ -42,8 +42,8 @@ function templateCarousel(item) {
 		direction: "horizontal",
 		loop: true,
 		spaceBetween: 10,
-		slidesPerView: 3,
-		slidesPerGroup: 3,
+		slidesPerView: 1,
+		slidesPerGroup: 1,
 		height: 200,
     slidesOffsetBefore: 0,
     
@@ -53,24 +53,14 @@ function templateCarousel(item) {
 		  },
 
 		breakpoints: {
+      820: {
+				slidesPerView: 3,
+				slidesPerGroup: 3,
+      },
+      
 			1024: {
 				slidesPerView: 3,
 				slidesPerGroup: 3,
-			},
-
-			820: {
-				slidesPerView: 3,
-				slidesPerGroup: 3,
-			},
-
-			640: {
-				slidesPerView: 2,
-				slidesPerGroup: 2,
-			},
-
-			340: {
-				slidesPerView: 1,
-				slidesPerGroup: 1,
 			},
 		},
 		pagination: {
@@ -118,35 +108,26 @@ function createSwipe(ref) {
 	var swiper = new Swiper(ref, {
 		direction: "horizontal",
 		loop: false,
-		spaceBetween: 7,
-		slidesPerView: 7,
-		slidesPerGroup: 7,
+		spaceBetween: 10,
+		slidesPerView: 3,
+		slidesPerGroup: 3,
 		height: 200,
 		slidesOffsetBefore: 0,
 
-		breakpoints: {
+		breakpoints: { 
+      640: {
+				slidesPerView: 5,
+				slidesPerGroup: 5,
+      },
+
+      820: {
+				slidesPerView: 6,
+				slidesPerGroup: 6,
+			},
+      
 			1024: {
 				slidesPerView: 7,
-				spaceBetween: 7,
 				slidesPerGroup: 7,
-			},
-
-			820: {
-				slidesPerView: 4,
-				spaceBetween: 4,
-				slidesPerGroup: 4,
-			},
-
-			640: {
-				sslidesPerView: 2,
-				spaceBetween: 2,
-				slidesPerGroup: 2,
-			},
-
-			340: {
-				slidesPerView: 1,
-				spaceBetween: 1,
-				slidesPerGroup: 1,
 			},
 		},
 		pagination: {
