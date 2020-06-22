@@ -1,6 +1,6 @@
 
-const carousel = document.querySelector('.carousel-first')
-const sectionCard = document.querySelector('.carousel-second')
+const carouselFirst = document.querySelector('.carousel-first')
+const CarouselSecond = document.querySelector('.carousel-second')
 
 const url = 'https://sky-frontend.herokuapp.com/movies';
 
@@ -20,28 +20,69 @@ function getApi() {
 
 function templateCarousel(item) {
 
-  carousel.innerHTML =
-    `<div class="carousel-item active">
+  carouselFirst.innerHTML = `
+  <div class="carousel-Launch swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
       <img class="d-block w-100" src="${item[0].images[0].url}"  alt="Poster do Filme ${item[0].title}">
-      <div class="carousel-caption d-none d-md-block"></div>
     </div>
-    <div class="carousel-item">
+    <div class="swiper-slide">
       <img class="d-block w-100" src="${item[1].images[0].url}"  alt="Poster do Filme ${item[1].title}">
-      <div class="carousel-caption d-none d-md-block"></div>
     </div>
-    <div class="carousel-item">
+    <div class="swiper-slide">
       <img class="d-block w-100" src="${item[2].images[0].url}"  alt="Poster do Filme ${item[2].title}">
-      <div class="carousel-caption d-none d-md-block"></div>
     </div>
-    <div class="carousel-item">
+    <div class="swiper-slide">
       <img class="d-block w-100" src="${item[3].images[0].url}"  alt="Poster do Filme ${item[3].title}">
-      <div class="carousel-caption d-none d-md-block"></div>
     </div>
-    <div class="carousel-item">
+    <div class="swiper-slide">
       <img class="d-block w-100" src="${item[4].images[0].url}"  alt="Poster do Filme ${item[4].title}">
-      <div class="carousel-caption d-none d-md-block"></div>
-    </div>`
+    </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>`
+
+  var swiperFirst = new Swiper('.carousel-Launch', {
+
+    loop: true,
+    spaceBetween: 20,
+    slidesPerView: 3,
+    slidesPerGroup: 6,
+    centeredSlides: true,
+    slidesOffsetBefore: 0,
+
+    breakpoints: {
+      1024: {
+        slidesPerView: 3,
+      },
+
+      820: {
+        slidesPerView: 2,
+      },
+
+      640: {
+        slidesPerView: 1,
+      },
+
+      340: {
+        slidesPerView: 1,
+      }
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+  })
 }
+
+
 
 function getCategories(objCategories) {
   let categories = new Map();
@@ -60,58 +101,30 @@ function getCategories(objCategories) {
   templateCategories(categories)
 }
 
-  function templateCategories(categories){
+function templateCategories(cat) {
 
-    for (let [categoria, objCategories] of categories) {
+  for (let [categoria, objCategories] of cat.entries()) {
 
-      sectionCard.innerHTML += `
-      <div class="swiper-container">
+    CarouselSecond.innerHTML += `
+      <div class="carousel-catalog swiper-container">
       <h4>${categoria}</h4>
       <div class="swiper-wrapper">
       </div>
       </div>`
-  
-      for (let cat = 0; cat < objCategories.length; cat++) {
-          document.querySelector('.swiper-wrapper').innerHTML += `
+
+    for (let cat = 0; cat < objCategories.length; cat++) {
+      document.querySelector('.swiper-wrapper').innerHTML += `
         <div class="swiper-slide">
         <img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme"></img>
         </div>`
-      }
-  
-      //   document.querySelector('.swiper-wrapper').innerHTML += `
-      // <div class="swiper-slide">
-      // <img class="cardCategories" src="${categoria[cat].images[0].url}" alt="Card do filme ${categoria[cat].title}"></img>
-      // </div>`
     }
-  
-  
-    // categories.forEach((objCategories, categoria) => {
-    //   sectionCard.innerHTML += `
-    //   <div class="div-carousel swiper-container">
-    //   <h4>${categoria}</h4>
-    //   <div class="swiper-wrapper">
-  
-    //   </div>
-    //   </div>`
-    // ${banana()}
-  
-    //     function banana(){
-    //     for (let cat = 0; cat < objCategories.length; cat++) {
-    //       console.log(objCategories[cat])
-    //       document.querySelector('.swiper-wrapper').innerHTML += `
-    // <div class="swiper-slide">
-    // <img class="cardCategories" src="${objCategories[cat].images[0].url}" alt="Card do filme ${objCategories[cat].title}"></img>
-    // </div>`
-    //     }
-  
-  
-      document.querySelector('.swiper-container').innerHTML += `
+
+    document.querySelector('.carousel-catalog').innerHTML += `
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       `
-    // }, categories)
-  
-    var mySwiper = new Swiper('.swiper-container', {
+
+    var swiper = new Swiper('.carousel-catalog', {
       direction: "horizontal",
       loop: true,
       spaceBetween: 10,
@@ -119,20 +132,20 @@ function getCategories(objCategories) {
       slidesPerGroup: 6,
       height: 200,
       slidesOffsetBefore: 0,
-  
+
       breakpoints: {
         1024: {
           slidesPerView: 6,
         },
-  
+
         820: {
           slidesPerView: 4,
         },
-  
+
         640: {
           slidesPerView: 3,
         },
-  
+
         340: {
           slidesPerView: 1,
         }
@@ -140,18 +153,17 @@ function getCategories(objCategories) {
       pagination: {
         el: ".swiper-pagination",
       },
-  
-  
+
+
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-  
-      // And if we need scrollbar
+
       scrollbar: {
         el: ".swiper-scrollbar",
       },
     })
   }
+}
 getApi()
-
