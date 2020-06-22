@@ -20,6 +20,13 @@
     border-radius: 3%;
 }
 
+@media only screen and (max-width: 500px) {
+    .cardCategories {
+        width: 50vw;
+        height: auto;
+    }
+  }
+
 .icons-nav{
 display: flex;
 justify-content: space-around;

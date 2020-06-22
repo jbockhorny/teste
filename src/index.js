@@ -55,18 +55,22 @@ function templateCarousel(item) {
 		breakpoints: {
 			1024: {
 				slidesPerView: 3,
+				slidesPerGroup: 3,
 			},
 
 			820: {
 				slidesPerView: 3,
+				slidesPerGroup: 3,
 			},
 
 			640: {
 				slidesPerView: 2,
+				slidesPerGroup: 2,
 			},
 
 			340: {
 				slidesPerView: 1,
+				slidesPerGroup: 1,
 			},
 		},
 		pagination: {
@@ -123,18 +127,26 @@ function createSwipe(ref) {
 		breakpoints: {
 			1024: {
 				slidesPerView: 7,
+				spaceBetween: 7,
+				slidesPerGroup: 7,
 			},
 
 			820: {
 				slidesPerView: 4,
+				spaceBetween: 4,
+				slidesPerGroup: 4,
 			},
 
 			640: {
-				slidesPerView: 3,
+				sslidesPerView: 2,
+				spaceBetween: 2,
+				slidesPerGroup: 2,
 			},
 
 			340: {
 				slidesPerView: 1,
+				spaceBetween: 1,
+				slidesPerGroup: 1,
 			},
 		},
 		pagination: {
